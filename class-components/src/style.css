@@ -68,6 +68,7 @@ button {
   border-radius: 0.25rem;
   font-family: 'Merriweather', serif;
   cursor: pointer;
+  width: 5rem;
 }
 
 button:hover {

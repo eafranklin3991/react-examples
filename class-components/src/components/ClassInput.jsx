@@ -13,6 +13,7 @@ class ClassInput extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   handleInputChange(e) {
@@ -32,6 +33,13 @@ class ClassInput extends Component {
 
   handleDelete(toDelete) {
     this.setState((state) => ({
+      todos: state.todos.filter((todo) => todo !== toDelete),
+    }));
+  }
+
+  handleEdit(toDelete) {
+    this.setState((state) => ({
+      inputVal: toDelete,
       todos: state.todos.filter((todo) => todo !== toDelete),
     }));
   }
@@ -59,6 +67,9 @@ class ClassInput extends Component {
               <li>{todo}</li>
               <button type="button" onClick={() => this.handleDelete(todo)}>
                 Delete
+              </button>
+              <button type="button" onClick={() => this.handleEdit(todo)}>
+                Edit
               </button>
             </div>
           ))}
