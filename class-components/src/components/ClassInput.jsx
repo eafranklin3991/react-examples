@@ -8,6 +8,7 @@ class ClassInput extends Component {
     this.state = {
       todos: ['Just some demo tasks', 'As an example'],
       inputVal: '',
+      editable: false,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -37,10 +38,9 @@ class ClassInput extends Component {
     }));
   }
 
-  handleEdit(toDelete) {
-    this.setState((state) => ({
-      inputVal: toDelete,
-      todos: state.todos.filter((todo) => todo !== toDelete),
+  handleEdit() {
+    this.setState(() => ({
+      editable: true,
     }));
   }
 
@@ -64,7 +64,11 @@ class ClassInput extends Component {
         <ul>
           {this.state.todos.map((todo) => (
             <div className="todo-row" key={todo}>
-              <li>{todo}</li>
+              {this.state.editable ? (
+                <input value={todo}></input>
+              ) : (
+                <li>{todo}</li>
+              )}
               <button type="button" onClick={() => this.handleDelete(todo)}>
                 Delete
               </button>
