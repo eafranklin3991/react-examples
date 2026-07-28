@@ -50,6 +50,9 @@ ul {
   margin: 0 0 0.5rem 0;
   padding-bottom: 0.25rem;
   border-bottom: #111 1px solid;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 li {
@@ -64,4 +67,17 @@ button {
   border: none;
   border-radius: 0.25rem;
   font-family: 'Merriweather', serif;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: hotpink;
+}
+
+button:active {
+  transform: translateY(0.25rem);
+}
+
+.todo-row {
+  display: flex;
 }
